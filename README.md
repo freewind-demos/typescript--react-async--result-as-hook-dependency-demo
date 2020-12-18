@@ -1,5 +1,7 @@
-TypeScript React Hello World Demo
+TypeScript "react-async" Demo
 =================================
+
+使用react-async库处理async操作
 
 ```
 npm install
