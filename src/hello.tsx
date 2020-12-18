@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect } from 'react';
 import { useAsync } from 'react-async'
 
 type Props = {};
@@ -16,7 +16,13 @@ function fetchData(): Promise<string> {
 }
 
 export const Hello: FC<Props> = ({}) => {
-  const { data, error, isPending } = useAsync({ promiseFn: fetchData })
+  const result = useAsync({ promiseFn: fetchData })
+  const { data, error, isPending } = result;
+
+  useEffect(() => {
+    console.log('### result changes', result);
+  }, [result])
+
   return <div>
     <h1>Hello ReactAsync</h1>
     <div>
